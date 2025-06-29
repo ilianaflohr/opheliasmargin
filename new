@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My HTML Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2em;
+            background: #f8f9fa;
+            color: #222;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        h1 {
+            color: #336699;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2em;
+            color: #aaa;
+        }
+
+        .popup-link {
+            color: #2466b1;
+            text-decoration: underline dotted;
+            cursor: pointer;
+        }
+
+        /* Modal popup styles */
+        .modal-popup {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
+            background: rgba(0,0,0,0.4);
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.25s;
+        }
+        .modal-popup.active {
+            display: flex;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 2em 2.5em 1.5em 2.5em;
+            border-radius: 10px;
+            position: relative;
+            max-width: 90vw;
+            max-height: 80vh;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+            text-align: left;
+            animation: popIn 0.18s;
+        }
+        .close-btn {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            background: transparent;
+            border: none;
+            font-size: 1.5em;
+            color: #888;
+            cursor: pointer;
+        }
+        .close-btn:hover {
+            color: #d11a2a;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0;}
+            to { opacity: 1;}
+        }
+        @keyframes popIn {
+            from { transform: scale(0.96);}
+            to { transform: scale(1);}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My HTML Site</h1>
+        <p>
+            A simple HTML 
+            <span class="popup-link" data-popup="template-popup">template</span>
+        </p>
+    </header>
+    <main>
+        <h2>About</h2>
+        <p>
+            This is a basic HTML site created as a starter 
+            <span class="popup-link" data-popup="template-popup">template</span>.
+            You can customize this page by editing the HTML, CSS, and adding your own 
+            <span class="popup-link" data-popup="content-popup">content</span>.
+        </p>
+        <h2>Features</h2>
+        <ul>
+            <li>Responsive design</li>
+            <li>Clean and simple layout</li>
+            <li>Easy to customize and add your own content</li>
+        </ul>
+    </main>
+    <footer>
+        &copy; 2025 My HTML Site
+    </footer>
+
+    <!-- Template Popup Modal -->
+    <div class="modal-popup" id="template-popup" role="dialog" aria-modal="true" aria-labelledby="template-popup-title">
+        <div class="modal-content">
+            <button class="close-btn" aria-label="Close popup" onclick="closePopup('template-popup')">&times;</button>
+            <h3 id="template-popup-title">Template</h3>
+            <div>
+                A <b>template</b> is a starting point or pattern used to create something, such as a file or document, with a predefined structure.
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Popup Modal (only for the first "content") -->
+    <div class="modal-popup" id="content-popup" role="dialog" aria-modal="true" aria-labelledby="content-popup-title">
+        <div class="modal-content">
+            <button class="close-btn" aria-label="Close popup" onclick="closePopup('content-popup')">&times;</button>
+            <h3 id="content-popup-title">Content</h3>
+            <div>
+                <b>Content</b> refers to the information, text, images, and other elements that appear on a website or document.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Only add popup to the first "content"
+        document.addEventListener('DOMContentLoaded', function() {
+            let contentLinks = document.querySelectorAll('.popup-link[data-popup="content-popup"]');
+            if (contentLinks.length > 1) {
+                // Remove the popup-link class and data-popup attribute from all but the first
+                for(let i = 1; i < contentLinks.length; ++i) {
+                    contentLinks[i].classList.remove('popup-link');
+                    contentLinks[i].removeAttribute('data-popup');
+                }
+            }
+        });
+
+        // Open popup function
+        function openPopup(id) {
+            document.getElementById(id).classList.add('active');
+            // Trap focus inside modal for accessibility
+            setTimeout(() => {
+                let closeBtn = document.getElementById(id).querySelector('.close-btn');
+                if (closeBtn) closeBtn.focus();
+            }, 150);
+        }
+        // Close popup function
+        function closePopup(id) {
+            document.getElementById(id).classList.remove('active');
+        }
+        // Handle click on popup-link to open correct popup
+        document.addEventListener('click', function(e) {
+            let target = e.target;
+            if (target.classList.contains('popup-link') && target.dataset.popup) {
+                e.preventDefault();
+                openPopup(target.dataset.popup);
+            }
+        });
+        // Close popup when clicking outside modal-content
+        document.querySelectorAll('.modal-popup').forEach(function(popup) {
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    closePopup(popup.id);
+                }
+            });
+        });
+        // ESC closes modal
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") {
+                document.querySelectorAll('.modal-popup.active').forEach(function(popup) {
+                    popup.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
