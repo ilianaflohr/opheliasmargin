@@ -1,0 +1,130 @@
+/* style.css - Custom styles for Hamlet Pop-up Demo and related pages */
+
+/* Import EB Garamond and Cormorant Garamond from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&family=Cormorant+Garamond:wght@700&display=swap');
+
+/* Body and general layout */
+body {
+    font-family: 'EB Garamond', Garamond, serif;
+    background-color: #fff;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+/* Content container */
+.body-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Table styling for title/nav */
+table {
+    width: 100%;
+    background-color: #CCF6F6;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+td.play {
+    font-size: 2em;
+    font-weight: bold;
+    padding: 10px 0;
+    font-family: 'Cormorant Garamond', Garamond, serif;
+}
+
+td.nav {
+    font-size: 1em;
+    padding: 5px 0;
+}
+
+/* Headings and blockquotes */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Garamond, serif;
+    font-weight: 700;
+}
+
+blockquote {
+    margin-left: 2em;
+    margin-right: 2em;
+    background: #f8f8f8;
+    padding: 0.5em 1em;
+    border-left: 4px solid #bcd;
+}
+
+/* Play and navigation links */
+a[name^="speech"] > b {
+    color: #003366;
+}
+
+a {
+    color: #008cba;
+}
+
+i {
+    color: #555;
+}
+
+@media (max-width: 700px) {
+    .body-content {
+        padding: 5px;
+    }
+    table, blockquote {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* Pop-up styles */
+.popup-backdrop {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 99;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 300px;
+    background: #f8f8f8;
+    border: 2px solid #003366;
+    border-radius: 8px;
+    padding: 1.5em 2em 1em 2em;
+    box-shadow: 0 0 40px rgba(0,0,0,0.2);
+    z-index: 100;
+    font-family: 'EB Garamond', Garamond, serif;
+}
+
+.popup h1, .popup h2, .popup h3, .popup h4, .popup h5, .popup h6 {
+    font-family: 'Cormorant Garamond', Garamond, serif;
+    font-weight: 700;
+}
+
+.popup .close-btn {
+    position: absolute;
+    top: 0.4em;
+    right: 0.7em;
+    font-size: 1.5em;
+    color: #003366;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Popup triggers */
+.who-link, .tobe-link {
+    color: #008cba;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.hamlet-line {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    font-family: 'EB Garamond', Garamond, serif;
+}
