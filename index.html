@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My HTML Site</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ophelia's Margin</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;600&family=IBM+Plex+Mono:wght@100&display=swap" rel="stylesheet">
+
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Cormorant Garamond', serif;
+            background-color: #fff;
+            color: #000;
             margin: 2em;
-            background: #f8f9fa;
-            color: #222;
         }
+
         header {
             text-align: center;
             margin-bottom: 2em;
@@ -25,169 +30,275 @@
         }
         h1 {
             color: #336699;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5em;
         }
+
+        h2 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5em;
+        }
+
+        h3 {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5em;
+        }
+
         footer {
             text-align: center;
             margin-top: 2em;
             color: #aaa;
         }
 
-        .popup-link {
-            color: #2466b1;
-            text-decoration: underline dotted;
+        .popup-backdrop {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 99;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 300px;
+            background: #f8f8f8;
+            border: 2px solid #003366;
+            border-radius: 8px;
+            padding: 1.5em 2em 1em 2em;
+            box-shadow: 0 0 40px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+        .popup .close-btn {
+            position: absolute;
+            top: 0.4em;
+            right: 0.7em;
+            font-size: 1.5em;
+            color: #003366;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .link-1-1-1-who, .link-1-1-2-unfold {
+            color: #008cba;
             cursor: pointer;
         }
 
-        /* Modal popup styles */
-        .modal-popup {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: auto;
-            background: rgba(0,0,0,0.4);
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.25s;
-        }
-        .modal-popup.active {
+        .line {
             display: flex;
+            align-items: center;
+            margin-bottom: 0.5em;
         }
-        .modal-content {
-            background: #fff;
-            padding: 2em 2.5em 1.5em 2.5em;
-            border-radius: 10px;
-            position: relative;
-            max-width: 90vw;
-            max-height: 80vh;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.2);
-            text-align: left;
-            animation: popIn 0.18s;
+
+        .line-number {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75em;
+            font-weight: 100;
+            width: 2em;
+            text-align: right;
+            margin-right: 1em;
+            color: #666;
+            font-variant-numeric: tabular-nums;
         }
-        .close-btn {
-            position: absolute;
-            top: 1em;
-            right: 1em;
-            background: transparent;
-            border: none;
-            font-size: 1.5em;
-            color: #888;
-            cursor: pointer;
+
+        .line-content {
+            flex: 1;
         }
-        .close-btn:hover {
-            color: #d11a2a;
+
+        .speaker {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: inline-block;
+            min-width: 7ch; /* ensures enough space for speaker names */
+            font-weight: 400;
+            margin-right: 0.75em;
         }
-        @keyframes fadeIn {
-            from { opacity: 0;}
-            to { opacity: 1;}
-        }
-        @keyframes popIn {
-            from { transform: scale(0.96);}
-            to { transform: scale(1);}
-        }
+
     </style>
 </head>
+
 <body>
     <header>
-        <h1>Welcome to My HTML Site</h1>
+        <h1>Ophelia's Margin</h1>
         <p>
-            A simple HTML 
-            <span class="popup-link" data-popup="template-popup">template</span>
+            A Hypertextual Reading of <i>Hamlet</i>.
         </p>
     </header>
     <main>
-        <h2>About</h2>
+        <!-- ACT 1 -->
+        <h2>
+            Act 1
+        </h2>
         <p>
-            This is a basic HTML site created as a starter 
-            <span class="popup-link" data-popup="template-popup">template</span>.
-            You can customize this page by editing the HTML, CSS, and adding your own 
-            <span class="popup-link" data-popup="content-popup">content</span>.
+            This is the first act of <i>Hamlet</i>.
         </p>
-        <h2>Features</h2>
-        <ul>
-            <li>Responsive design</li>
-            <li>Clean and simple layout</li>
-            <li>Easy to customize and add your own content</li>
-        </ul>
+        <!-- SCENE 1 -->
+        <h3>
+            Scene 1
+        </h3>
+        <p>
+            This is the first scene of <i>Hamlet</i>.
+        </p>
+        <!-- LINE I.1.1 -->
+        <div 
+        class="line">
+            <div class="line-number">1</div>
+            <div class="line-content">
+                <span class="speaker">BERNARDO</span><span class="link-1-1-1-who" id="link-1-1-1-who">Who</span>
+                's there?
+            </div>
+        </div>
+        <!-- LINE I.1.2 -->
+        <div 
+        class="line">
+            <div class="line-number">2</div>
+            <div class="line-content">
+                <span class="speaker">FRANCISCO</span>
+                Nay, answer me. Stand and 
+                <span class="link-1-1-2-unfold" id="link-1-1-2-unfold">unfold</span> 
+                yourself.
+            </div>
+        </div>
+        <!-- LINE I.1.3 -->
+        <div 
+        class="line">
+            <div class="line-number">3</div>
+            <div class="line-content">
+                <span class="speaker">BERNARDO</span>
+                Long live the king!
+            </div>
+        </div>
+        <!-- LINE I.1.4 -->
+        <div 
+        class="line">
+            <div class="line-number">4</div>
+            <div class="line-content">
+                <span class="speaker">FRANCISCO</span>
+                Bernardo?
+            </div>
+        </div>
+        <!-- LINE I.1.5 -->
+        <div 
+        class="line">
+            <div class="line-number">5</div>
+            <div class="line-content">
+                <span class="speaker">BERNARDO</span>
+                He.
+            </div>
+        </div>
+        <!-- LINE I.1.6 -->
+        <div 
+        class="line">
+            <div class="line-number">6</div>
+            <div class="line-content">
+                <span class="speaker">FRANCISCO</span>
+                You come most carefully upon your hour.
+            </div>
+        </div>
+
+        <!-- LINE I.1.7 -->
+        <div 
+        class="line">
+            <div class="line-number">7</div>
+            <div class="line-content">
+                <span class="speaker">BERNARDO</span>
+                'Tis now struck twelve; get thee to bed, Francisco.
+            </div>
+        </div>
+
+        <!-- LINE I.1.8 -->
+        <div 
+        class="line">
+            <div class="line-number">8</div>
+            <div class="line-content">
+                <span class="speaker">FRANCISCO</span>
+                For this relief much thanks: 'tis bitter cold,
+
+            </div>
+        </div>
+
+        <!-- LINE I.1.9 -->
+        <div class="line">
+            <div class="line-number">9</div>
+            <div class="line-content" style="text-indent: 1.5em;">
+                And I am sick at heart.
+            </div>
+        </div>
+
+        <!-- Shared backdrop -->
+        <div class="popup-backdrop" id="popup-backdrop"></div>
+
+        <!-- Pop-up for "Who" -->
+        <div class="popup" id="popup-1-1-1-who">
+            <span class="close-btn" id="close-btn-1-1-1-who">&times;</span>
+            <h3>Who's there?</h3>
+            <p>This is the famous opening line from Shakespeare's <em>Hamlet</em>.<br>
+            Click the X to close this pop-up.</p>
+        </div>
+
+        <!-- Pop-up for "unfold" -->
+        <div class="popup" id="popup-1-1-2-unfold">
+            <span class="close-btn" id="close-btn-1-1-2-unfold">&times;</span>
+            <h3>Unfold</h3>
+            <p>In this context, "unfold yourself" means "reveal your identity."<br>
+            It's a demand for clarity in a tense, watchful moment.</p>
+        </div>
+
     </main>
     <footer>
-        &copy; 2025 My HTML Site
+        &copy; 2025 Ophelia's Margin
     </footer>
 
-    <!-- Template Popup Modal -->
-    <div class="modal-popup" id="template-popup" role="dialog" aria-modal="true" aria-labelledby="template-popup-title">
-        <div class="modal-content">
-            <button class="close-btn" aria-label="Close popup" onclick="closePopup('template-popup')">&times;</button>
-            <h3 id="template-popup-title">Template</h3>
-            <div>
-                A <b>template</b> is a starting point or pattern used to create something, such as a file or document, with a predefined structure.
-            </div>
-        </div>
-    </div>
-
-    <!-- Content Popup Modal (only for the first "content") -->
-    <div class="modal-popup" id="content-popup" role="dialog" aria-modal="true" aria-labelledby="content-popup-title">
-        <div class="modal-content">
-            <button class="close-btn" aria-label="Close popup" onclick="closePopup('content-popup')">&times;</button>
-            <h3 id="content-popup-title">Content</h3>
-            <div>
-                <b>Content</b> refers to the information, text, images, and other elements that appear on a website or document.
-            </div>
-        </div>
-    </div>
+    
 
     <script>
-        // Only add popup to the first "content"
-        document.addEventListener('DOMContentLoaded', function() {
-            let contentLinks = document.querySelectorAll('.popup-link[data-popup="content-popup"]');
-            if (contentLinks.length > 1) {
-                // Remove the popup-link class and data-popup attribute from all but the first
-                for(let i = 1; i < contentLinks.length; ++i) {
-                    contentLinks[i].classList.remove('popup-link');
-                    contentLinks[i].removeAttribute('data-popup');
-                }
-            }
+        // Elements for "who"
+        const whoLink = document.getElementById('link-1-1-1-who');
+        const popupWho = document.getElementById('popup-1-1-1-who');
+        const closeBtnWho = document.getElementById('close-btn-1-1-1-who');
+
+        // Elements for "to be or not to be"
+        const tobeLink = document.getElementById('link-1-1-2-unfold');
+        const popupTobe = document.getElementById('popup-1-1-2-unfold');
+        const closeBtnTobe = document.getElementById('close-btn-1-1-2-unfold');
+
+        // Shared backdrop
+        const backdrop = document.getElementById('popup-backdrop');
+
+        whoLink.addEventListener('click', function() {
+            popupWho.style.display = 'block';
+            backdrop.style.display = 'block';
         });
 
-        // Open popup function
-        function openPopup(id) {
-            document.getElementById(id).classList.add('active');
-            // Trap focus inside modal for accessibility
-            setTimeout(() => {
-                let closeBtn = document.getElementById(id).querySelector('.close-btn');
-                if (closeBtn) closeBtn.focus();
-            }, 150);
-        }
-        // Close popup function
-        function closePopup(id) {
-            document.getElementById(id).classList.remove('active');
-        }
-        // Handle click on popup-link to open correct popup
-        document.addEventListener('click', function(e) {
-            let target = e.target;
-            if (target.classList.contains('popup-link') && target.dataset.popup) {
-                e.preventDefault();
-                openPopup(target.dataset.popup);
-            }
+        closeBtnWho.addEventListener('click', function() {
+            popupWho.style.display = 'none';
+            backdrop.style.display = 'none';
         });
-        // Close popup when clicking outside modal-content
-        document.querySelectorAll('.modal-popup').forEach(function(popup) {
-            popup.addEventListener('click', function(e) {
-                if (e.target === popup) {
-                    closePopup(popup.id);
-                }
-            });
+
+        tobeLink.addEventListener('click', function() {
+            popupTobe.style.display = 'block';
+            backdrop.style.display = 'block';
         });
-        // ESC closes modal
-        document.addEventListener('keydown', function(e) {
-            if (e.key === "Escape") {
-                document.querySelectorAll('.modal-popup.active').forEach(function(popup) {
-                    popup.classList.remove('active');
-                });
-            }
+
+        closeBtnTobe.addEventListener('click', function() {
+            popupTobe.style.display = 'none';
+            backdrop.style.display = 'none';
+        });
+
+        backdrop.addEventListener('click', function() {
+            popupWho.style.display = 'none';
+            popupTobe.style.display = 'none';
+            backdrop.style.display = 'none';
         });
     </script>
 </body>
