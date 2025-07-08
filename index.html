@@ -22,6 +22,7 @@
             text-align: center;
             margin-bottom: 2em;
         }
+        
         main {
             max-width: 800px;
             margin: 0 auto;
@@ -30,6 +31,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.07);
         }
+
         h1 {
             color: #336699;
             font-family: 'Raleway', sans-serif;
@@ -58,13 +60,13 @@
             color: #aaa;
         }
 
-        .popup-backdrop {
-            display: none;
+        #popup-backdrop {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0,0,0,0.4);
             z-index: 99;
         }
+
         .popup {
             display: none;
             position: fixed;
@@ -79,6 +81,7 @@
             box-shadow: 0 0 40px rgba(0,0,0,0.2);
             z-index: 100;
         }
+
         .popup .close-btn {
             position: absolute;
             top: 0.4em;
@@ -89,7 +92,7 @@
             font-weight: bold;
         }
 
-        .link-1-1-1-who, .link-1-1-2-unfold {
+        .link {
             color: #008cba;
             cursor: pointer;
         }
@@ -189,7 +192,7 @@
         class="line">
             <div class="line-number">1</div>
             <div class="line-content">
-                <span class="speaker">BARNARDO</span><span class="link-1-1-1-who" id="link-1-1-1-who">Who</span>'s there?
+                <span class="speaker">BARNARDO</span><span class="link" data-popup-id="popup-1-1-1-who">Who</span>'s there?
             </div>
         </div>
         <!-- LINE I.1.2 -->
@@ -199,7 +202,7 @@
             <div class="line-content">
                 <span class="speaker">FRANCISCO</span>
                 Nay, answer me. Stand and 
-                <span class="link-1-1-2-unfold" id="link-1-1-2-unfold">unfold</span> 
+                <span class="link" data-popup-id="popup-1-1-2-unfold">unfold</span> 
                 yourself.
             </div>
         </div>
@@ -2065,12 +2068,8 @@
             </div>
         </div>
 
-
-        <!-- Shared backdrop -->
-        <div class="popup-backdrop" id="popup-backdrop"></div>
-
         <!-- Pop-up for "Who" -->
-        <div class="popup" id="popup-1-1-1-who">
+        <div class="popup" id="popup-1-1-1-who" style="display: none;">
             <span class="close-btn" id="close-btn-1-1-1-who">&times;</span>
             <h3>Who's there?</h3>
             <p>This is the famous opening line from Shakespeare's <em>Hamlet</em>.<br>
@@ -2078,7 +2077,7 @@
         </div>
 
         <!-- Pop-up for "unfold" -->
-        <div class="popup" id="popup-1-1-2-unfold">
+        <div class="popup" id="popup-1-1-2-unfold" style="display: none;">
             <span class="close-btn" id="close-btn-1-1-2-unfold">&times;</span>
             <h3>Unfold</h3>
             <p>In this context, "unfold yourself" means "reveal your identity."<br>

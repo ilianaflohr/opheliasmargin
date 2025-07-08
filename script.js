@@ -1,43 +1,33 @@
+// behavior for popups
 window.onload = () => {
-    // Elements for "who"
-    const whoLink = document.getElementById('link-1-1-1-who');
-    const popupWho = document.getElementById('popup-1-1-1-who');
-    const closeBtnWho = document.getElementById('close-btn-1-1-1-who');
+    document.addEventListener("click", function (event) {
+        const target = event.target;
 
-    // Elements for "to be or not to be"
-    const tobeLink = document.getElementById('link-1-1-2-unfold');
-    const popupTobe = document.getElementById('popup-1-1-2-unfold');
-    const closeBtnTobe = document.getElementById('close-btn-1-1-2-unfold');
+        const showPopup = (popupId) => {
+            const popup = document.getElementById(popupId);
+            if (popup) {
+                popup.style.display = "block";
+                const backdrop = document.createElement("div");
+                backdrop.id = "popup-backdrop";
+                backdrop.dataset.popupId = popupId;
+                document.body.appendChild(backdrop);
+            }
+        };
 
-    // Shared backdrop
-    const backdrop = document.getElementById('popup-backdrop');
+        const hidePopup = (popupId) => {
+            document.getElementById(popupId).style.display = "none";
+            document.getElementById("popup-backdrop").remove();
+        };
 
-    whoLink.addEventListener('click', function () {
-        popupWho.style.display = 'block';
-        backdrop.style.display = 'block';
+        if (target.classList.contains("link")) {
+            showPopup(target.dataset.popupId);
+        } else if (target.classList.contains("close-btn")) {
+            hidePopup(target.parentElement.id);
+        } else if (target.id === "popup-backdrop") {
+            hidePopup(target.dataset.popupId);
+        }
     });
-
-    closeBtnWho.addEventListener('click', function () {
-        popupWho.style.display = 'none';
-        backdrop.style.display = 'none';
-    });
-
-    tobeLink.addEventListener('click', function () {
-        popupTobe.style.display = 'block';
-        backdrop.style.display = 'block';
-    });
-
-    closeBtnTobe.addEventListener('click', function () {
-        popupTobe.style.display = 'none';
-        backdrop.style.display = 'none';
-    });
-
-    backdrop.addEventListener('click', function () {
-        popupWho.style.display = 'none';
-        popupTobe.style.display = 'none';
-        backdrop.style.display = 'none';
-    });
-}
+};
 
 // behavior for the Act • Scene header
 const acts = document.getElementsByClassName("act");
