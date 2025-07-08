@@ -15,3 +15,10 @@ window.onscroll = () => {
     const scene = getClosest(scenes);
     document.getElementById("sticky-header").innerText = `${act}${scene ? ` • ${scene}` : ""}`;
 };
+
+// dynamic footer (automatically updates year)
+function createFooter() {
+    let year = new Date().getFullYear();
+    let footer = document.getElementsByTagName("footer");
+    footer[0].append(Object.assign(document.createElement("small"), { innerHTML: `&copy; ${year} Ophelia's Margin` }));
+}
