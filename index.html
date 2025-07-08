@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Ophelia's Margin</title>
 
+    <script src="script.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;600&family=IBM+Plex+Mono:wght@100&display=swap" rel="stylesheet">
@@ -124,6 +126,14 @@
             margin-right: 0.75em;
         }
 
+        /* style the Act • Scene header */
+        #sticky-header {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: #003366;
+            font-size: larger;
+        }
     </style>
 </head>
 
@@ -133,10 +143,11 @@
         <p>
             A Hypertextual Reading of <i>Hamlet</i>.
         </p>
+        <div id="sticky-header"></div>
     </header>
     <main>
         <!-- CHARACTERS -->
-        <h2>
+        <h2 class="act">
             Characters
         </h2>
         
@@ -164,12 +175,12 @@
         </div>
 
         <!-- ACT 1 -->
-        <h2>
+        <h2 class="act">
             Act 1
         </h2>
 
         <!-- SCENE 1 -->
-        <h3>
+        <h3 class="scene">
             Scene 1
         </h3>
 
@@ -1750,7 +1761,7 @@
         </p>
 
         <!-- SCENE 2 (ACT 1) -->
-        <h3>
+        <h3 class="scene">
             Scene 2
         </h3>
 
@@ -1765,7 +1776,7 @@
         </div>
 
         <!-- SCENE 3 (ACT 1) -->
-        <h3>
+        <h3 class="scene">
             Scene 3
         </h3>
 
@@ -1780,7 +1791,7 @@
         </div>
 
         <!-- SCENE 4 (ACT 1) -->
-        <h3>
+        <h3 class="scene">
             Scene 4
         </h3>
 
@@ -1795,7 +1806,7 @@
         </div>
 
         <!-- SCENE 5 (ACT 1) -->
-        <h3>
+        <h3 class="scene">
             Scene 5
         </h3>
 
@@ -1810,12 +1821,12 @@
         </div>
         
         <!-- Act 2 -->
-        <h2>
+        <h2 class="act">
             Act 2
         </h2>
 
         <!-- SCENE 1 (ACT 2) -->
-        <h3>
+        <h3 class="scene">
             Scene 1
         </h3>
 
@@ -1830,7 +1841,7 @@
         </div>
 
         <!-- SCENE 2 (ACT 2) -->
-        <h3>
+        <h3 class="scene">
             Scene 2
         </h3>
 
@@ -1845,12 +1856,12 @@
         </div>
 
         <!-- Act 3 -->
-        <h2>
+        <h2 class="act">
             Act 3
         </h2>
 
         <!-- SCENE 1 (ACT 3) -->
-        <h3>
+        <h3 class="scene">
             Scene 1
         </h3>
 
@@ -1865,7 +1876,7 @@
         </div>
 
         <!-- SCENE 2 (ACT 3) -->
-        <h3>
+        <h3 class="scene">
             Scene 2
         </h3>
 
@@ -1880,7 +1891,7 @@
         </div>
 
         <!-- SCENE 3 (ACT 3) -->
-        <h3>
+        <h3 class="scene">
             Scene 3
         </h3>
 
@@ -1895,7 +1906,7 @@
         </div>
 
         <!-- SCENE 4 (ACT 3) -->
-        <h3>
+        <h3 class="scene">
             Scene 4
         </h3>
 
@@ -1910,12 +1921,12 @@
         </div>
 
         <!-- Act 4 -->
-        <h2>
+        <h2 class="act">
             Act 4
         </h2>
 
         <!-- SCENE 1 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 1
         </h3>
 
@@ -1930,7 +1941,7 @@
         </div>
 
         <!-- SCENE 2 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 2
         </h3>
 
@@ -1945,7 +1956,7 @@
         </div>
 
         <!-- SCENE 3 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 3
         </h3>
 
@@ -1960,7 +1971,7 @@
         </div>
 
         <!-- SCENE 4 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 4
         </h3>
 
@@ -1975,7 +1986,7 @@
         </div>
 
         <!-- SCENE 5 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 5
         </h3>
 
@@ -1990,7 +2001,7 @@
         </div>
 
         <!-- SCENE 6 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 6
         </h3>
 
@@ -2005,7 +2016,7 @@
         </div>
 
         <!-- SCENE 7 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 7
         </h3>
 
@@ -2020,12 +2031,12 @@
         </div>
 
         <!-- Act 5 -->
-        <h2>
+        <h2 class="act">
             Act 5
         </h2>
 
         <!-- SCENE 1 (ACT 5) -->
-        <h3>
+        <h3 class="scene">
             Scene 1
         </h3>
 
@@ -2040,7 +2051,7 @@
         </div>
 
         <!-- SCENE 2 (ACT 5) -->
-        <h3>
+        <h3 class="scene">
             Scene 2
         </h3>
 
