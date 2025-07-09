@@ -1,2 +1,2 @@
 # Ophelia's Margin
-A Hypertextual Reading of Hamlet
+A Hypertextual Reading of *Hamlet*
