@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Ophelia's Margin</title>
 
+    <script src="script.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;600&family=IBM+Plex+Mono:wght@100&display=swap" rel="stylesheet">
@@ -20,6 +22,7 @@
             text-align: center;
             margin-bottom: 2em;
         }
+        
         main {
             max-width: 800px;
             margin: 0 auto;
@@ -28,6 +31,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.07);
         }
+
         h1 {
             color: #336699;
             font-family: 'Raleway', sans-serif;
@@ -56,13 +60,13 @@
             color: #aaa;
         }
 
-        .popup-backdrop {
-            display: none;
+        #popup-backdrop {
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background: rgba(0,0,0,0.4);
             z-index: 99;
         }
+
         .popup {
             display: none;
             position: fixed;
@@ -77,6 +81,7 @@
             box-shadow: 0 0 40px rgba(0,0,0,0.2);
             z-index: 100;
         }
+
         .popup .close-btn {
             position: absolute;
             top: 0.4em;
@@ -87,7 +92,7 @@
             font-weight: bold;
         }
 
-        .link-1-1-1-who, .link-1-1-2-unfold {
+        .link {
             color: #008cba;
             cursor: pointer;
         }
@@ -124,6 +129,14 @@
             margin-right: 0.75em;
         }
 
+        /* style the Act • Scene header */
+        #sticky-header {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            color: #003366;
+            font-size: larger;
+        }
     </style>
 </head>
 
@@ -133,10 +146,11 @@
         <p>
             A Hypertextual Reading of <i>Hamlet</i>.
         </p>
+        <div id="sticky-header"></div>
     </header>
     <main>
         <!-- CHARACTERS -->
-        <h2>
+        <h2 class="act">
             Characters
         </h2>
         
@@ -164,12 +178,12 @@
         </div>
 
         <!-- ACT 1 -->
-        <h2>
+        <h2 class="act">
             Act 1
         </h2>
 
         <!-- SCENE 1 -->
-        <h3>
+        <h3 class="scene">
             Scene 1
         </h3>
 
@@ -178,7 +192,7 @@
         class="line">
             <div class="line-number">1</div>
             <div class="line-content">
-                <span class="speaker">BARNARDO</span><span class="link-1-1-1-who" id="link-1-1-1-who">Who</span>'s there?
+                <span class="speaker">BARNARDO</span><span class="link" data-popup-id="popup-1-1-1-who">Who</span>'s there?
             </div>
         </div>
         <!-- LINE I.1.2 -->
@@ -188,7 +202,7 @@
             <div class="line-content">
                 <span class="speaker">FRANCISCO</span>
                 Nay, answer me. Stand and 
-                <span class="link-1-1-2-unfold" id="link-1-1-2-unfold">unfold</span> 
+                <span class="link" data-popup-id="popup-1-1-2-unfold">unfold</span> 
                 yourself.
             </div>
         </div>
@@ -1750,7 +1764,7 @@
         </p>
 
         <!-- SCENE 2 (ACT 1) -->
-        <h3>
+        <h3 class="scene">
             Scene 2
         </h3>
 
@@ -1765,7 +1779,7 @@
         </div>
 
         <!-- SCENE 3 (ACT 1) -->
-        <h3>
+        <h3 class="scene">
             Scene 3
         </h3>
 
@@ -1780,7 +1794,7 @@
         </div>
 
         <!-- SCENE 4 (ACT 1) -->
-        <h3>
+        <h3 class="scene">
             Scene 4
         </h3>
 
@@ -1795,7 +1809,7 @@
         </div>
 
         <!-- SCENE 5 (ACT 1) -->
-        <h3>
+        <h3 class="scene">
             Scene 5
         </h3>
 
@@ -1810,12 +1824,12 @@
         </div>
         
         <!-- Act 2 -->
-        <h2>
+        <h2 class="act">
             Act 2
         </h2>
 
         <!-- SCENE 1 (ACT 2) -->
-        <h3>
+        <h3 class="scene">
             Scene 1
         </h3>
 
@@ -1830,7 +1844,7 @@
         </div>
 
         <!-- SCENE 2 (ACT 2) -->
-        <h3>
+        <h3 class="scene">
             Scene 2
         </h3>
 
@@ -1845,12 +1859,12 @@
         </div>
 
         <!-- Act 3 -->
-        <h2>
+        <h2 class="act">
             Act 3
         </h2>
 
         <!-- SCENE 1 (ACT 3) -->
-        <h3>
+        <h3 class="scene">
             Scene 1
         </h3>
 
@@ -1865,7 +1879,7 @@
         </div>
 
         <!-- SCENE 2 (ACT 3) -->
-        <h3>
+        <h3 class="scene">
             Scene 2
         </h3>
 
@@ -1880,7 +1894,7 @@
         </div>
 
         <!-- SCENE 3 (ACT 3) -->
-        <h3>
+        <h3 class="scene">
             Scene 3
         </h3>
 
@@ -1895,7 +1909,7 @@
         </div>
 
         <!-- SCENE 4 (ACT 3) -->
-        <h3>
+        <h3 class="scene">
             Scene 4
         </h3>
 
@@ -1910,12 +1924,12 @@
         </div>
 
         <!-- Act 4 -->
-        <h2>
+        <h2 class="act">
             Act 4
         </h2>
 
         <!-- SCENE 1 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 1
         </h3>
 
@@ -1930,7 +1944,7 @@
         </div>
 
         <!-- SCENE 2 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 2
         </h3>
 
@@ -1945,7 +1959,7 @@
         </div>
 
         <!-- SCENE 3 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 3
         </h3>
 
@@ -1960,7 +1974,7 @@
         </div>
 
         <!-- SCENE 4 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 4
         </h3>
 
@@ -1975,7 +1989,7 @@
         </div>
 
         <!-- SCENE 5 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 5
         </h3>
 
@@ -1990,7 +2004,7 @@
         </div>
 
         <!-- SCENE 6 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 6
         </h3>
 
@@ -2005,7 +2019,7 @@
         </div>
 
         <!-- SCENE 7 (ACT 4) -->
-        <h3>
+        <h3 class="scene">
             Scene 7
         </h3>
 
@@ -2020,12 +2034,12 @@
         </div>
 
         <!-- Act 5 -->
-        <h2>
+        <h2 class="act">
             Act 5
         </h2>
 
         <!-- SCENE 1 (ACT 5) -->
-        <h3>
+        <h3 class="scene">
             Scene 1
         </h3>
 
@@ -2040,7 +2054,7 @@
         </div>
 
         <!-- SCENE 2 (ACT 5) -->
-        <h3>
+        <h3 class="scene">
             Scene 2
         </h3>
 
@@ -2054,12 +2068,8 @@
             </div>
         </div>
 
-
-        <!-- Shared backdrop -->
-        <div class="popup-backdrop" id="popup-backdrop"></div>
-
         <!-- Pop-up for "Who" -->
-        <div class="popup" id="popup-1-1-1-who">
+        <div class="popup" id="popup-1-1-1-who" style="display: none;">
             <span class="close-btn" id="close-btn-1-1-1-who">&times;</span>
             <h3>Who's there?</h3>
             <p>This is the famous opening line from Shakespeare's <em>Hamlet</em>.<br>
@@ -2067,7 +2077,7 @@
         </div>
 
         <!-- Pop-up for "unfold" -->
-        <div class="popup" id="popup-1-1-2-unfold">
+        <div class="popup" id="popup-1-1-2-unfold" style="display: none;">
             <span class="close-btn" id="close-btn-1-1-2-unfold">&times;</span>
             <h3>Unfold</h3>
             <p>In this context, "unfold yourself" means "reveal your identity."<br>
@@ -2076,50 +2086,7 @@
 
     </main>
     <footer>
-        &copy; 2025 Ophelia's Margin
+        <script>createFooter();</script>
     </footer>
-
-    
-
-    <script>
-        // Elements for "who"
-        const whoLink = document.getElementById('link-1-1-1-who');
-        const popupWho = document.getElementById('popup-1-1-1-who');
-        const closeBtnWho = document.getElementById('close-btn-1-1-1-who');
-
-        // Elements for "to be or not to be"
-        const tobeLink = document.getElementById('link-1-1-2-unfold');
-        const popupTobe = document.getElementById('popup-1-1-2-unfold');
-        const closeBtnTobe = document.getElementById('close-btn-1-1-2-unfold');
-
-        // Shared backdrop
-        const backdrop = document.getElementById('popup-backdrop');
-
-        whoLink.addEventListener('click', function() {
-            popupWho.style.display = 'block';
-            backdrop.style.display = 'block';
-        });
-
-        closeBtnWho.addEventListener('click', function() {
-            popupWho.style.display = 'none';
-            backdrop.style.display = 'none';
-        });
-
-        tobeLink.addEventListener('click', function() {
-            popupTobe.style.display = 'block';
-            backdrop.style.display = 'block';
-        });
-
-        closeBtnTobe.addEventListener('click', function() {
-            popupTobe.style.display = 'none';
-            backdrop.style.display = 'none';
-        });
-
-        backdrop.addEventListener('click', function() {
-            popupWho.style.display = 'none';
-            popupTobe.style.display = 'none';
-            backdrop.style.display = 'none';
-        });
-    </script>
 </body>
 </html>
