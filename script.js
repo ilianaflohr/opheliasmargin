@@ -30,22 +30,109 @@ window.onload = () => {
 };
 
 // behavior for the Act • Scene header
-const acts = document.getElementsByClassName("act");
-const scenes = document.getElementsByClassName("scene");
+window.addEventListener('DOMContentLoaded', () => {
+    const acts = document.querySelectorAll(".act");
+    const scenes = document.querySelectorAll(".scene");
+    const stickyHeader = document.getElementById("sticky-header");
+    const dropdown = document.getElementById("dropdown");
+    const container = document.getElementById("sticky-container");
 
-window.onscroll = () => {
-    const scroll = window.scrollY;
+    // Scroll logic to update the header
+    window.addEventListener("scroll", () => {
+        const scroll = window.scrollY;
 
-    const getClosest = (elements) => {
-        const positions = Array.from(elements).map(el => el.offsetTop);
-        const closest = [...positions].reverse().find(pos => pos <= scroll);
-        return closest !== undefined ? elements[positions.indexOf(closest)].innerText : "";
+        const getClosestAct = () => {
+            let closestAct = null;
+            for (let i = 0; i < acts.length; i++) {
+                if (acts[i].offsetTop <= scroll) {
+                    closestAct = acts[i];
+                } else {
+                    break;
+                }
+            }
+            return closestAct;
+        };
+
+        const getClosestSceneWithinAct = (actElement, nextActElement) => {
+            let closestScene = null;
+            for (let i = 0; i < scenes.length; i++) {
+                const sceneTop = scenes[i].offsetTop;
+                if (
+                    sceneTop > actElement.offsetTop &&
+                    (!nextActElement || sceneTop < nextActElement.offsetTop) &&
+                    sceneTop <= scroll
+                ) {
+                    closestScene = scenes[i];
+                }
+            }
+            return closestScene;
+        };
+
+        const act = getClosestAct();
+        if (!act) {
+            stickyHeader.innerText = "";
+            return;
+        }
+
+        const actIndex = Array.from(acts).indexOf(act);
+        const nextAct = acts[actIndex + 1] || null;
+
+        const scene = getClosestSceneWithinAct(act, nextAct);
+
+        const actText = act.innerText.trim().replace(/\s*\n\s*/g, " ");
+
+        if (scene) {
+            const sceneText = scene.innerText.trim().replace(/\s*\n\s*/g, " ");
+            stickyHeader.innerText = `${actText} • ${sceneText}`;
+        } else {
+            // Show just the act if no scene has appeared yet
+            stickyHeader.innerText = actText;
+        }
+    });
+
+    // Toggle dropdown on click
+    stickyHeader.addEventListener("click", (e) => {
+        dropdown.classList.toggle("visible");
+    });
+
+    // Hide dropdown if click outside
+    document.addEventListener("click", (e) => {
+        if (!container.contains(e.target)) {
+            dropdown.classList.remove("visible");
+        }
+    });
+
+    // Build dropdown
+    const buildDropdown = () => {
+        const headers = [];
+
+        acts.forEach(act => {
+            headers.push({ type: "act", text: act.innerText.trim().replace(/\s*\n\s*/g, " "), element: act });
+        });
+
+        scenes.forEach(scene => {
+            headers.push({ type: "scene", text: scene.innerText.trim().replace(/\s*\n\s*/g, " "), element: scene });
+        });
+
+        // Sort by offsetTop
+        headers.sort((a, b) => a.element.offsetTop - b.element.offsetTop);
+
+        headers.forEach(item => {
+            const div = document.createElement("div");
+            div.innerText = item.text;
+            if (item.type === "scene") div.style.paddingLeft = "24px"; // Indent scenes
+            div.addEventListener("click", () => {
+                window.scrollTo({ top: item.element.offsetTop, behavior: "smooth" });
+                dropdown.classList.remove("visible");
+            });
+            dropdown.appendChild(div);
+        });
     };
 
-    const act = getClosest(acts);
-    const scene = getClosest(scenes);
-    document.getElementById("sticky-header").innerText = `${act}${scene ? ` • ${scene}` : ""}`;
-};
+    buildDropdown(); // Call once on page load
+});
+
+
 
 // dynamic footer (automatically updates year)
 function createFooter() {
