@@ -79,7 +79,7 @@ footer {
     transform: translate(-50%, -50%);
     min-width: 300px;
     background: #f8f8f8;
-    border: 2px solid #003366;
+    border: 0px solid #003366;
     border-radius: 8px;
     padding: 1.5em 2em 1em 2em;
     box-shadow: 0 0 40px rgba(0,0,0,0.2);
@@ -100,6 +100,18 @@ footer {
     color: #008cba;
     cursor: pointer;
 }
+
+/* Unvisited link */
+a:link {
+  color: #336699;
+}
+
+/* Visited link */
+a:visited {
+  color: #8c959e;
+}
+
+
 
 .line {
     display: flex;
@@ -128,7 +140,7 @@ footer {
     text-transform: uppercase;
     letter-spacing: 0.04em;
     display: inline-block;
-    min-width: 7ch; /* ensures enough space for speaker names */
+    /* min-width: 7ch; /* ensures enough space for speaker names */
     font-weight: 400;
     margin-right: 0.75em;
 }
@@ -190,7 +202,7 @@ footer {
 }
 
 #dropdown::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(0, 51, 102, 0.3); /* 75% opacity on hover */
+    background-color: rgba(0, 51, 102, 0.5); /* 75% opacity on hover */
 }
 
 
