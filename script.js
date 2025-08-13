@@ -36,6 +36,9 @@ window.addEventListener('DOMContentLoaded', () => {
     const stickyHeader = document.getElementById("sticky-header");
     const dropdown = document.getElementById("dropdown");
     const container = document.getElementById("sticky-container");
+    const menuDropdown = document.getElementsByClassName("menu-dropdown")[0];
+    const menuContainer = document.getElementsByClassName("menu-container")[0];
+    const menuIcon = document.getElementsByClassName("menu-icon")[0];
 
     // Scroll logic to update the header
     window.addEventListener("scroll", () => {
@@ -90,15 +93,23 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Toggle dropdown on click
+    // Show dropdown on click
     stickyHeader.addEventListener("click", (e) => {
         dropdown.classList.add("visible");
     });
 
-    // Hide dropdown if click outside
+    // Toggle hamburger menu on click
+    menuIcon.addEventListener("click", (e) => {
+        menuDropdown.classList.toggle("visible");
+    });
+
+    // Hide dropdown or hamburger menu if click outside
     document.addEventListener("click", (e) => {
         if (!container.contains(e.target)) {
             dropdown.classList.remove("visible");
+        }
+        if (!menuContainer.contains(e.target)) {
+            menuDropdown.classList.remove("visible");
         }
     });
 
@@ -132,18 +143,9 @@ window.addEventListener('DOMContentLoaded', () => {
     buildDropdown(); // Call once on page load
 });
 
-
-
 // dynamic footer (automatically updates year)
 function createFooter() {
     let year = new Date().getFullYear();
     let footer = document.getElementsByTagName("footer");
     footer[0].append(Object.assign(document.createElement("small"), { innerHTML: `&copy; ${year} Ophelia's Margin` }));
-}
-
-
-
-
-function toggleMenu() {
-    document.getElementById("menuDropdown").classList.toggle("show");
 }
