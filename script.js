@@ -140,3 +140,10 @@ function createFooter() {
     let footer = document.getElementsByTagName("footer");
     footer[0].append(Object.assign(document.createElement("small"), { innerHTML: `&copy; ${year} Ophelia's Margin` }));
 }
+
+
+
+
+function toggleMenu() {
+  document.getElementById("menuDropdown").classList.toggle("show");
+}
