@@ -227,3 +227,63 @@ a:visited {
 
 
 
+
+
+
+
+
+
+/* Position menu in top-right corner */
+.menu-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: inline-block;
+}
+
+/* Hamburger icon (3 lines) */
+.menu-icon {
+  width: 30px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.menu-icon div {
+  height: 4px;
+  background-color: black;
+  border-radius: 2px;
+}
+
+/* Menu dropdown styling - scoped to menu-container */
+.menu-container .menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 30px;
+  background-color: #333;
+  min-width: 120px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Menu links - scoped so they don't affect other dropdown links */
+.menu-container .menu-dropdown a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.menu-container .menu-dropdown a:hover {
+  background-color: #555;
+}
+
+/* Show menu when active */
+.menu-container .menu-dropdown.show {
+  display: block;
+}
+
