@@ -92,7 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Toggle dropdown on click
     stickyHeader.addEventListener("click", (e) => {
-        dropdown.classList.toggle("visible");
+        dropdown.classList.add("visible");
     });
 
     // Hide dropdown if click outside
@@ -145,5 +145,5 @@ function createFooter() {
 
 
 function toggleMenu() {
-  document.getElementById("menuDropdown").classList.toggle("show");
+    document.getElementById("menuDropdown").classList.toggle("show");
 }
