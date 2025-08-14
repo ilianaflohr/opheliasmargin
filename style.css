@@ -284,6 +284,6 @@ a:visited {
 }
 
 /* Show menu when active */
-.menu-container .menu-dropdown.show {
+.menu-dropdown.visible {
   display: block;
 }
