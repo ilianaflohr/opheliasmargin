@@ -1,3 +1,4 @@
+
 body {
     position: relative;
     font-family: 'Cormorant Garamond', serif;
@@ -235,16 +236,16 @@ a:visited {
 
 /* Position menu in top-right corner */
 .menu-container {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+  position: fixed;
+  top: 23px;
+  right: 23px;
   display: inline-block;
 }
 
 /* Hamburger icon (3 lines) */
 .menu-icon {
-  width: 30px;
-  height: 22px;
+  width: 25px;
+  height: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -252,8 +253,8 @@ a:visited {
 }
 
 .menu-icon div {
-  height: 4px;
-  background-color: black;
+  height: 3px;
+  background-color: #336699;
   border-radius: 2px;
 }
 
@@ -286,4 +287,3 @@ a:visited {
 .menu-dropdown.visible {
   display: block;
 }
-
