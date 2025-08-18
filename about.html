@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ophelia's Margin</title>
-
-    <script src="script.js"></script>
+    <title>About Ophelia's Margin</title>
 
     <link rel="stylesheet" type="text/css" href="style.css">
 
@@ -13,35 +11,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;600&family=IBM+Plex+Mono:wght@100&display=swap" rel="stylesheet">
 </head>
 
+<script src="script.js"></script>
 <body>
     <header>
         <h1>
-            Ophelia's Margin
+            About Ophelia's Margin
         </h1>
         <p>
             A Hypertextual Reading of <i>Hamlet</i>.
         </p>
         <div id="sticky-container">
             <div id="sticky-header"></div>
-            <div id="dropdown" class="dropdown hidden"></div>
+            <div id="dropdown" class="dropdown"></div>
         </div>
 
         <!-- Menu button + dropdown -->
         <div class="menu-container">
-            <div class="menu-icon" onclick="toggleMenu()">
+            <div class="menu-icon">
             <div></div>
             <div></div>
             <div></div>
-            </div>
+            </div>  
             <div class="menu-dropdown" id="menuDropdown">
             <a href="index.html">Home</a>
-            <a href="about.html">About</a>
+            <a aria-disabled="true" style="color: grey;">About</a>
             <a href="contact.html">Contact</a>
             </div>
         </div>
-
-        <script src="script.js"></script>
-        
     </header>
 
 
